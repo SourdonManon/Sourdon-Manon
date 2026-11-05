@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manon Sourdon | Artiste Visuelle Contemporaine</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #1a1a1a;
+            --accent-color: #c83e2b;
+            --secondary-color: #555555;
+            --card-bg: #ffffff;
+            --border-color: #e5e5e5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(252, 252, 252, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 60vh;
+            padding-top: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero p.quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--secondary-color);
+            max-width: 800px;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .artwork-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .artwork-meta {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .timeline {
+            list-style: none;
+            border-left: 2px solid var(--border-color);
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.9rem;
+            top: 0.3rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0.2rem 0;
+        }
+
+        .book-section {
+            background-color: #f4f4f4;
+            padding: 3rem;
+            border-radius: 4px;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+}
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .nav-links { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Manon Sourdon</div>
+            <ul class="nav-links">
+                <li><a href="#about">Présentation</a></li>
+                <li><a href="#galerie">Œuvres</a></li>
+                <li><a href="#expositions">Expositions</a></li>
+                <li><a href="#livre">Livre & Médias</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>SOURDON MANON</h1>
+            <p style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary-color);">Créatrice Visuelle Contemporaine | Avignon</p>
+            <p class="quote">« La force expressive des couleurs franches et l'épure des lignes traduisent un mouvement, une volonté essentielle : revenir à la réflexion. »</p>
+        </section>
+
+        <section id="about">
+            <h2>Présentation & Démarche Artistique</h2>
+            <div class="about-content">
+                <div>
+                    <h3 style="margin-bottom: 1rem;">Univers Visuel & Propos</h3>
+                    <p style="margin-bottom: 1rem;">Née et vivant à Avignon, Manon Sourdon développe une œuvre singulière qui explore avec intensité et pudeur les tensions entre le corps, l'intime, les émotions et la couleur. Elle s'inspire de son vécu et de ses expériences pour y puiser son inspiration.</p>
+                    <p style="margin-bottom: 1rem;">Son univers se caractérise par des contrastes audacieux et des compositions minimalistes. Loin de la simple figuration, l'artiste s'attache à saisir l'essence même de l'expérience humaine. Chaque œuvre devient le lieu d'une rencontre où la rigueur du trait dialogue avec la puissance de la palette.</p>
+                    <p>À travers ses créations, Manon Sourdon cherche à provoquer un dialogue émotionnel singulier — parfois direct et saisissant, parfois suggéré et mystérieux, invitant le spectateur à projeter sa propre sensibilité.</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1rem;">Concept, Formes & Médium</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Concept & Dualité :</strong> Sa pratique repose sur l'exploration de la dualité entre vulnérabilité et puissance, l'ombre et la lumière, la douceur et la force, le dévoilement et la retenue. Elle met en scène les émotions lors d'un processus de reconstruction.</p>
+                    <p style="margin-bottom: 1rem;"><strong>Regard Féminin :</strong> C'est la vie des femmes observée par un œil féminin, révélant toute la complexité des émotions ressenties. La nudité dépasse la matérialité du corps pour s'élever au rang d'émotion, d'âme et d'esprit.</p>
+                    <p><strong>Technique Digitale :</strong> Manon Sourdon privilégie le format affiche pour déployer ses projets. Elle exploite les possibilités du numérique en combinant divers pinceaux digitaux pour créer une texture hybride, oscillant entre la matière de la peinture, le grain du dessin et la précision du virtuel.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galerie">
+            <h2>Galerie des Œuvres</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="artwork-title">Lâcher prise (2026)</div>
+                    <div class="artwork-meta">Format A1 | Digitale / Affiche sous cadre</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+                <div class="card">
+                    <div class="artwork-title">Conjugale (2026)</div>
+                    <div class="artwork-meta">Format A3 | Digitale / Affiche sous cadre</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+                <div class="card">
+                    <div class="artwork-title">Allégresse (2026)</div>
+                    <div class="artwork-meta">Format A3 | Digitale / Affiche sous cadre</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+                <div class="card">
+                    <div class="artwork-title">L'amour de soi (2025)</div>
+                    <div class="artwork-meta">Format A3 | Digitale / Affiche sous cadre</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+                <div class="card">
+                    <div class="artwork-title">La dualité (2025)</div>
+                    <div class="artwork-meta">Format A3 | Digitale / Affiche sous cadre</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+                <div class="card">
+                    <div class="artwork-title">Décourage (2025)</div>
+                    <div class="artwork-meta">Format A3 | Digitale / Affiche sous cadre</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+                <div class="card">
+                    <div class="artwork-title">Fauves (2024)</div>
+                    <div class="artwork-meta">Format A1 | Digitale / Affiche sous cadre</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+                <div class="card">
+                    <div class="artwork-title">L'anxiété (2024)</div>
+                    <div class="artwork-meta">Format A1 | Digitale / Affiche sous cadre</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+                <div class="card">
+                    <div class="artwork-title">Série Exposition « Femmes »</div>
+                    <div class="artwork-meta">Œuvres N°1 à N°10 | Format A3</div>
+                    <div class="artwork-meta" style="margin-top: 0.5rem; font-style: italic;">Technique mixte / Média numérique</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expositions">
+            <h2>Expositions</h2>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-date">23 au 28 Février 2026</div>
+                    <div class="timeline-title">Exposition « Femmes »</div>
+                    <p>Galerie La Porte Rouge (Art Avignonnais Contemporain), Avignon</p>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-date">14 Octobre au 3 Novembre 2026</div>
+                    <div class="timeline-title">Exposition « Intimité du corps et exposition des sentiments »</div>
+                    <p>Galerie ACMAA, L'Isle-sur-la-Sorgue</p>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-date">Début 2027 (Prévue)</div>
+                    <div class="timeline-title">Exposition Galerie BDMC</div>
+                    <p>Paris</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="livre">
+            <h2>Littérature & Médias</h2>
+            <div class="book-section">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Roman : Les Masques de l'Amour</h3>
+                <p style="font-style: italic; color: var(--secondary-color); margin-bottom: 1rem;">Éditions Le Lys Bleu</p>
+                <p style="margin-bottom: 1.5rem;"><em>« Sous les lumières d'Avignon, une jeune peintre croit trouver en Julien l'amour rare qu'elle attendait. Peu à peu, les silences s'allongent, les signaux se brouillent, et la romance rêvée se mue en piège affectif subtil, indétectable, qui fissure son monde. »</em></p>
+                
+                <h4 style="margin-bottom: 0.5rem;">Médias & Presse :</h4>
+                <p>• Articles dans <em>La Provence</em>, <em>Ici Vaucluse</em>, <em>L'Écho du Mardi</em>, <em>Ariane</em>.</p>
+                <p>• Passage sur <strong>NRJ</strong> et invitée dans le podcast <em>« Un poing c'est tout »</em> (disponible sur Spotify).</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p><strong>Artiste :</strong> Sourdon Manon</p>
+                <p><strong>Ville :</strong> Avignon, France</p>
+                <p><strong>Téléphone :</strong> <a href="tel:0787009872">07 87 00 98 72</a></p>
+                <p><strong>Email :</strong> <a href="mailto:Manons.13160@gmail.com">Manons.13160@gmail.com</a></p>
+                <p><strong>Instagram :</strong> <a href="https://instagram.com/manon_nerii" target="_blank">@manon_nerii</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Manon Sourdon. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
